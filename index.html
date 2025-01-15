@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #00e5ff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .parallax {
+            background-image: url('background.jpg'); /* Replace with your image */
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .cube-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spin 6s infinite linear;
+        }
+
+        .cube div {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(0, 255, 255, 0.8);
+            border: 2px solid #00e5ff;
+            transform-origin: center;
+        }
+
+        .cube div:nth-child(1) { transform: rotateY(0deg) translateZ(75px); }
+        .cube div:nth-child(2) { transform: rotateY(90deg) translateZ(75px); }
+        .cube div:nth-child(3) { transform: rotateY(180deg) translateZ(75px); }
+        .cube div:nth-child(4) { transform: rotateY(270deg) translateZ(75px); }
+        .cube div:nth-child(5) { transform: rotateX(90deg) translateZ(75px); }
+        .cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(75px); }
+
+        @keyframes spin {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .content {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .gif-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gif-section img {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #00e5ff;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 20px;
+            color: #00e5ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+
+    <div class="parallax"></div>
+
+    <div class="cube-container">
+        <div class="cube">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Showcase</h2>
+        <div class="gif-section">
+            <img src="example1.gif" alt="Showcase 1"> <!-- Replace with your GIFs -->
+            <img src="example2.gif" alt="Showcase 2">
+            <img src="example3.gif" alt="Showcase 3">
+        </div>
+    </div>
+
+    <footer>
+        <p>Connect with me: <a href="#">GitHub</a> | <a href="#">Roblox</a> | <a href="#">Email</a></p>
+    </footer>
+</body>
