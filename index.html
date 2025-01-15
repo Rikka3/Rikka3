@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Developer Portfolio</title>
+    <title>Dripxy_ Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('minecraft-font.ttf') format('truetype'); /* Replace with the path to your Minecraft font file */
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Minecraft', Arial, sans-serif;
             color: white;
             background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
             overflow-x: hidden;
@@ -60,6 +65,12 @@
             background: rgba(0, 255, 255, 0.8);
             border: 2px solid #00e5ff;
             transform-origin: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-family: 'Minecraft', Arial, sans-serif;
+            color: black;
         }
 
         .cube div:nth-child(1) { transform: rotateY(0deg) translateZ(75px); }
@@ -68,6 +79,10 @@
         .cube div:nth-child(4) { transform: rotateY(270deg) translateZ(75px); }
         .cube div:nth-child(5) { transform: rotateX(90deg) translateZ(75px); }
         .cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(75px); }
+
+        .cube div:before {
+            content: "Dripxy_";
+        }
 
         @keyframes spin {
             0% { transform: rotateX(0deg) rotateY(0deg); }
@@ -84,11 +99,26 @@
             text-align: center;
         }
 
+        .content p {
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 1.2rem;
+            color: #00e5ff;
+        }
+
         .gif-section {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .gif-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .gif-section img {
@@ -96,7 +126,6 @@
             height: auto;
             border: 3px solid #00e5ff;
             border-radius: 10px;
-            animation: fadeIn 2s ease-in-out;
         }
 
         footer {
@@ -126,8 +155,11 @@
     </div>
 
     <div class="content">
+        <h2>About Me</h2>
+        <p>Hi! I am Dripxy_, a passionate Roblox developer. I love creating unique and interactive experiences. Although I may not have released any projects yet, I have worked on many behind the scenes. Oh, and I really like cats!</p>
+
         <h2>Showcase</h2>
-        <div class="gif-section">
+        <div class="gif-section" id="gifSection">
             <img src="example1.gif" alt="Showcase 1"> <!-- Replace with your GIFs -->
             <img src="example2.gif" alt="Showcase 2">
             <img src="example3.gif" alt="Showcase 3">
@@ -137,4 +169,15 @@
     <footer>
         <p>Connect with me: <a href="#">GitHub</a> | <a href="#">Roblox</a> | <a href="#">Email</a></p>
     </footer>
+
+    <script>
+        const gifSection = document.getElementById('gifSection');
+        window.addEventListener('scroll', () => {
+            const rect = gifSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                gifSection.classList.add('visible');
+            }
+        });
+    </script>
 </body>
+</html>
